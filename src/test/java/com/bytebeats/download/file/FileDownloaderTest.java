@@ -1,13 +1,12 @@
-# FileDownloader
-File download library for Java and Android, simple to use.
+package com.bytebeats.download.file;
 
-## Quick Start
-```
+import java.io.File;
+import com.bytebeats.download.file.config.FileDownloaderConfiguration;
 
 public class FileDownloaderTest {
 
 	public static void main(String[] args) {
-
+		
 		FileDownloader fileDownloader = FileDownloader.getInstance();
 		FileDownloaderConfiguration configuration = FileDownloaderConfiguration
 				.newBuilder()
@@ -17,16 +16,14 @@ public class FileDownloaderTest {
 				.downloadDestinationDir(new File("D:/Download"))
 				.build();
 		fileDownloader.init(configuration);
-
+		
 		String url = "http://dldir1.qq.com/qqfile/qq/QQ7.9/16621/QQ7.9.exe";;
 		String filename = "QQ7.9.exe";
-
+		
 		boolean result = fileDownloader.download(url, filename);
-
+		
 		System.out.println("download result:"+result);
-
+		
 		fileDownloader.destroy();	//close it when you not need
 	}
 }
-
-```
